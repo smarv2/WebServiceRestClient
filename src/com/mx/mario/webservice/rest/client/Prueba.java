@@ -20,14 +20,16 @@ public class Prueba {
 
         //Esta variable res la usaremos únicamente para dar un respuesta final
         String res = "";
-        String URL = "http://localhost:8080/ServicioRest/app/";
-
+        //String URL = "http://localhost:8080/ServicioRest/app/";
+        String URL = "https://192.168.1.61/portalservicios/v1/759/disposicionimss/certificacion";
+        
         try {
             //Creamos el cliente de conexión al API Restful
             Client client = ClientBuilder.newClient();
 
             //Creamos el target lo cuál es nuestra URL junto con el nombre del método a llamar
-            WebTarget target = client.target(URL + "datosPOSTJSON");
+            //WebTarget target = client.target(URL + "datosPOSTJSON");
+            WebTarget target = client.target(URL);
 
             //Creamos nuestra solicitud que realizará el request
             Invocation.Builder solicitud = target.request();
