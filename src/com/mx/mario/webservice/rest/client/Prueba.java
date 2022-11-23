@@ -21,7 +21,8 @@ public class Prueba {
         //Esta variable res la usaremos únicamente para dar un respuesta final
         String res = "";
         //String URL = "http://localhost:8080/ServicioRest/app/";
-        String URL = "https://192.168.1.61/portalservicios/v1/759/disposicionimss/certificacion";
+        //String URL = "https://192.168.1.61/portalservicios/v1/759/disposicionimss/certificacion";
+        String URL = "http://localhost/PA/mesnajesSMS.php";
         
         try {
             //Creamos el cliente de conexión al API Restful
@@ -41,23 +42,30 @@ public class Prueba {
             parametrosVO.setApellido("Ramirez");
             parametrosVO.setEdad(33);
             
+            //seervicio php param
+            parametrosVO.setDestinatario("+525531750509");
+            parametrosVO.setMensaje("oli desde servicio");
+            
             //Convertimos el objeto req a un json
             Gson gson = new Gson();
             String jsonString = gson.toJson(parametrosVO);
             System.out.println("jsonString: " + jsonString);
 
             //Enviamos nuestro json vía post al API Restful
-            Response post = solicitud.post(Entity.json(jsonString));
+            //Response resp = solicitud.post(Entity.json(jsonString));
+            
+            //Enviamos nuestro json vía post al API Restful
+            Response resp = solicitud.get();
             
             //Recibimos la respuesta y la leemos en una clase de tipo String, en caso de que el json sea tipo json y no string,
             //debemos usar la clase de tipo JsonObject.class en lugar de String.class
-            String responseJson = post.readEntity(String.class);
+            String responseJson = resp.readEntity(String.class);
             res = responseJson;
 
             //Imprimimos el status de la solicitud
-            System.out.println("Estatus: " + post.getStatus());
+            System.out.println("Estatus: " + resp.getStatus());
 
-            switch (post.getStatus()) {
+            switch (resp.getStatus()) {
                 case 200:
                     res = responseJson;
                     break;

@@ -14,6 +14,9 @@ public class ParametrosVO {
     private String nombre;
     private String apellido;
     private int edad;
+    //
+    private String destinatario;
+    private String mensaje;
 
     /**
      * @return the nombre
@@ -55,6 +58,34 @@ public class ParametrosVO {
      */
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+
+    /**
+     * @return the destinatario
+     */
+    public String getDestinatario() {
+        return destinatario;
+    }
+
+    /**
+     * @param destinatario the destinatario to set
+     */
+    public void setDestinatario(String destinatario) {
+        this.destinatario = destinatario;
+    }
+
+    /**
+     * @return the mensaje
+     */
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    /**
+     * @param mensaje the mensaje to set
+     */
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
     }
 
     
